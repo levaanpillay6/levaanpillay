@@ -18,12 +18,45 @@
       --white: #ffffff;
     }
 
+    /* PRELOADER */
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      z-index: 2000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .loader {
+      width: 60px;
+      height: 60px;
+      border: 5px solid var(--cyan);
+      border-top: 5px solid transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    body.loading {
+      overflow: hidden;
+    }
+
+    /* MAIN BODY */
     body {
       background-color: var(--black);
       color: var(--white);
       font-family: "Poppins", sans-serif;
       line-height: 1.6;
-      padding-top: 110px; /* allow for header */
+      padding-top: 110px;
     }
 
     html { scroll-behavior: smooth; }
@@ -50,7 +83,6 @@
       font-size: 1.4rem;
       font-weight: 700;
       color: var(--cyan);
-      letter-spacing: 1px;
       text-align: center;
       width: 100%;
     }
@@ -64,13 +96,12 @@
     .nav a {
       color: #ddd;
       text-decoration: none;
-      margin: 0 6px;
-      font-weight: 500;
       font-size: .95rem;
       padding: 6px 10px;
       border-radius: 6px;
       transition: 0.2s;
     }
+
     .nav a:hover {
       background: var(--cyan);
       color: var(--black);
@@ -87,7 +118,6 @@
       padding: 6px 10px;
       border-radius: 6px;
       border: none;
-      outline: none;
       background: #111;
       color: #fff;
       width: 140px;
@@ -96,11 +126,10 @@
     .search-container button {
       padding: 6px 10px;
       border-radius: 6px;
-      border: none;
       background: #333;
       color: #fff;
+      border: none;
       cursor: pointer;
-      transition: 0.2s;
     }
 
     .search-container button:hover {
@@ -108,29 +137,21 @@
       color: var(--black);
     }
 
-    /* ---------- MOBILE HEADER FIX ---------- */
+    /* MOBILE HEADER FIX */
     @media (max-width: 800px) {
       header {
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
         gap: 10px;
-        padding: 14px 10px;
       }
 
       .logo {
         font-size: 1.8rem;
-        width: 100%;
-        text-align:center;
-        order: 1;
       }
 
       nav.nav {
-        order: 2;
         width: 100%;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 10px;
       }
 
       nav.nav a {
@@ -146,14 +167,12 @@
         padding-top: 150px;
       }
 
-      /* ↓↓↓ ADDED — smaller heading on mobile ↓↓↓ */
       .hero h1 {
         font-size: 1.6rem;
       }
-      /* ↑↑↑ END ADDITION ↑↑↑ */
     }
 
-    /* Hero */
+    /* HERO */
     .hero {
       text-align: center;
       padding: 100px 20px;
@@ -161,47 +180,38 @@
     }
     .hero h1 {
       font-size: 2.4rem;
-      margin-bottom: 8px;
       color: var(--cyan);
+      margin-bottom: 8px;
     }
     .hero p {
       font-size: 1.05rem;
       color: #cfcfcf;
       max-width:900px;
-      margin: 0 auto;
+      margin: auto;
     }
     .hero button {
       margin-top: 18px;
       padding: 10px 25px;
-      background-color: var(--cyan);
-      color:var(--black);
-      border:none;
-      border-radius:25px;
+      background: var(--cyan);
+      color: var(--black);
+      border-radius: 25px;
       cursor:pointer;
       font-weight:700;
-      transition: all .25s ease;
-    }
-    .hero button:hover {
-      background:var(--cyandark);
-      transform: translateY(-2px);
+      border: none;
     }
 
-    /* Quote */
     .quote {
       text-align:center;
       margin: 18px 3%;
       color:var(--cyan);
       font-weight:600;
-      font-size:1.05rem;
     }
 
-    /* Content Sections */
     .content-section {
       padding: 54px 5%;
       text-align: center;
     }
 
-    /* Gallery */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit,minmax(160px,1fr));
@@ -215,49 +225,47 @@
       object-fit:cover;
       background:#111;
       border-radius:10px;
-      transition: transform .25s ease, box-shadow .25s ease;
-      box-shadow: 0 0 0px var(--cyan);
+      transition:0.25s;
     }
+
     .gallery-grid img:hover {
       transform: scale(1.05);
       box-shadow: 0 0 15px var(--cyan);
     }
 
-    /* Rates Table */
     .rates-table {
       width: 100%;
       max-width: 720px;
-      margin: 14px auto;
+      margin: auto;
       border-collapse: collapse;
     }
     .rates-table th, .rates-table td {
       border:1px solid #111;
       padding: 10px;
-      color:var(--white);
     }
     .rates-table th {
       background:#0a0a0a;
       color: var(--cyan);
-      font-weight:700;
     }
 
-    /* Contact Form */
-    .contact form{
+    .contact form {
       display:flex;
       flex-direction:column;
       align-items:center;
       gap:10px;
       margin-top:10px;
     }
+
     .contact input, .contact textarea {
       width:100%;
       max-width:520px;
       padding:10px;
       border-radius:10px;
-      border:none;
       background:#111;
       color:#fff;
+      border:none;
     }
+
     .contact button {
       background-color:var(--cyan);
       color:var(--black);
@@ -266,10 +274,6 @@
       border-radius:25px;
       cursor:pointer;
       font-weight:700;
-      transition:0.25s;
-    }
-    .contact button:hover {
-      background:var(--cyandark);
     }
 
     .socials {
@@ -279,59 +283,37 @@
       margin-top: 12px;
       flex-wrap:wrap;
     }
-    .socials a img {
-      width:50px;
-      height:50px;
-      border-radius:8px;
-      object-fit:cover;
-      transition:0.2s;
-    }
-    .socials a img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 10px var(--cyan);
-    }
-
-    #scrollTopBtn {
-      display:none;
-      position:fixed;
-      bottom:30px;
-      right:30px;
-      background-color:var(--cyan);
-      color:#000;
-      border:none;
-      border-radius:50%;
-      padding:10px 12px;
-      font-size:18px;
-      cursor:pointer;
-      z-index:1200;
-    }
 
     footer {
       text-align:center;
       padding:20px 0;
       background:#020202;
       color:#777;
-      font-size:0.9rem;
       margin-top:28px;
     }
   </style>
 </head>
 
-<body>
+<body class="loading">
+
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="loader"></div>
+  </div>
 
   <!-- HEADER -->
   <header>
     <div class="logo">Levaan Pillay</div>
 
-    <nav class="nav" aria-label="Main navigation">
+    <nav class="nav">
       <a href="#about">About</a>
       <a href="#gallery">Gallery</a>
       <a href="#rates">Rates</a>
       <a href="#contact">Contact</a>
 
       <span class="search-container">
-        <input id="searchInput" type="search" placeholder="Search..." aria-label="Search content">
-        <button id="searchBtn" type="button">Go</button>
+        <input id="searchInput" type="search" placeholder="Search..." />
+        <button id="searchBtn">Go</button>
       </span>
     </nav>
   </header>
@@ -342,35 +324,13 @@
     <p>Levaan pillay is a proud scholar, entrepreneur, and an upcoming business man with an inspirational back story!</p>
     <button onclick="document.getElementById('contact').scrollIntoView({ behavior:'smooth' })">Book Now</button>
   </section>
-  <br> </br>  
-  <div class="quote">
-    <strong>"I sell dreams... hustling hard, gym and snack harder, sleeping hardest..."</strong>
-  </div>
-  <br> </br>   <br> </br> 
+
+  <div class="quote"><strong>"I sell dreams... hustling hard, gym and snack harder, sleeping hardest..."</strong></div>
+
   <!-- ABOUT -->
   <section id="about" class="content-section">
     <h2 style="color:var(--cyan)">About Levaan Pillay</h2>
-
-    <br> </br> 
-    <p> I am a driven individual with a passion for growth, innovation, and making a lasting impact.
-
-I believe in hard work, discipline, and the power of purpose.
-
-Whether it’s through business, creativity, or personal development, I strive to inspire others to dream big and turn those dreams into reality.
-
-With a strong focus on continuous learning and self-improvement, I’m dedicated to building a legacy defined by excellence, integrity, and success. My journey is fueled by ambition, guided by gratitude, and shaped by a desire to uplift others along the way.
-
-
-I strive to inspire those around me to dream without limits and take action with intent.
-
-I value integrity, innovation, and excellence in everything I do, constantly pushing boundaries and setting new goals.
-
-
-For me, it’s not just about building a brand —
-
-it’s about building a legacy.
-
-Every step I take is guided by gratitude, confidence, and the desire to leave a mark that lasts far beyond my lifetime.</p>
+    <p>I am a driven individual...</p>
   </section>
 
   <!-- GALLERY -->
@@ -393,9 +353,9 @@ Every step I take is guided by gratitude, confidence, and the desire to leave a 
     <h2 style="color:var(--cyan)">Rates</h2>
     <table class="rates-table">
       <tr><th>ITEM</th><th>Rate</th></tr>
-      <tr><td>web developing</td><td>—</td></tr>
-      <tr><td>orders</td><td>—</td></tr>
-      <tr><td>coming soon</td><td>—</td></tr>
+      <tr><td>Web developing</td><td>—</td></tr>
+      <tr><td>Orders</td><td>—</td></tr>
+      <tr><td>Coming soon</td><td>—</td></tr>
     </table>
   </section>
 
@@ -417,45 +377,22 @@ Every step I take is guided by gratitude, confidence, and the desire to leave a 
       <a href="https://www.tiktok.com/@levaan_pillay"><img src="TIK TOK PIC.jpg"></a>
     </div>
   </section>
-  
- <div class="quote">
-    <strong>"Focus, Prayer and hard work are guiding principles for reaching stepping stones in my life"</strong>
-  </div>
 
-
-  
   <footer>
     <p>© 2025 Levaan Pillay. All rights reserved.</p>
   </footer>
 
   <script>
-    document.getElementById("searchBtn").addEventListener("click", function(){
-      const query = document.getElementById("searchInput").value.toLowerCase().trim();
-      if (!query) { alert("Type something to search."); return; }
-      const sections = document.querySelectorAll("section, header, footer");
-      let found = false;
-      sections.forEach(sec => {
-        if (sec.textContent.toLowerCase().includes(query)) {
-          sec.scrollIntoView({ behavior: "smooth" });
-          found = true;
-        }
-      });
-      if (!found) {
-        alert("No matching content found.");
-      }
-    });
+    /* PRELOADER */
+    window.addEventListener("load", () => {
+      const preloader = document.getElementById("preloader");
+      preloader.style.opacity = "0";
+      preloader.style.transition = "opacity 0.6s ease";
 
-    const scrollBtn = document.getElementById("scrollTopBtn");
-    window.addEventListener('scroll', () => {
-      if (document.documentElement.scrollTop > 300) {
-        scrollBtn.style.display = "block";
-      } else {
-        scrollBtn.style.display = "none";
-      }
-    });
-
-    scrollBtn?.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      setTimeout(() => {
+        preloader.style.display = "none";
+        document.body.classList.remove("loading");
+      }, 600);
     });
 
     function sendEmail(event) {
@@ -463,19 +400,19 @@ Every step I take is guided by gratitude, confidence, and the desire to leave a 
       const name = document.getElementById("name").value.trim();
       const email = document.getElementById("email").value.trim();
       const message = document.getElementById("message").value.trim();
+
       if (!name || !email || !message) {
         alert("Please fill every field.");
         return;
       }
+
       const mailtoLink =
         `mailto:levaanpillay6@gmail.com?subject=New Query from ${encodeURIComponent(name)}&body=From: ${encodeURIComponent(email)}%0A%0A${encodeURIComponent(message)}`;
+
       window.location.href = mailtoLink;
     }
   </script>
 
 </body>
 </html>
-
-
-
 
