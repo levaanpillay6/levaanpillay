@@ -16,9 +16,6 @@
       --white: #ffffff;
     }
 
-    /* =========================
-       🔥 PRELOADER (LP + RING)
-       ========================= */
     body.loading { overflow: hidden; }
 
     #preloader {
@@ -63,9 +60,6 @@
       100% { opacity: 0.3; transform: scale(1); }
     }
 
-    /* ============================
-       MAIN WEBSITE STYLING
-       ============================ */
     body {
       background: var(--black);
       color: var(--white);
@@ -77,7 +71,6 @@
     html { scroll-behavior: smooth; }
     section { scroll-margin-top: 90px; }
 
-    /* HEADER */
     header {
       position: fixed;
       top: 0;
@@ -119,33 +112,6 @@
       color: var(--black);
     }
 
-    .search-container {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-left: 12px;
-    }
-
-    .search-container input {
-      padding: 6px 10px;
-      background: #111;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-    }
-
-    /* MOBILE */
-    @media (max-width: 800px) {
-      header { flex-direction: column; gap: 10px; }
-      .logo { font-size: 1.8rem; }
-      nav.nav { width: 100%; justify-content: center; flex-wrap: wrap; }
-      nav.nav a { font-size: 1rem; padding: 10px 14px; }
-      .search-container { display: none; }
-      body { padding-top: 150px; }
-      .hero h1 { font-size: 1.6rem; }
-    }
-
-    /* HERO */
     .hero {
       text-align: center;
       padding: 100px 20px;
@@ -158,56 +124,11 @@
       margin-bottom: 10px;
     }
 
-    .hero p {
-      max-width: 900px;
-      margin: auto;
-      color: #cfcfcf;
-    }
-
-    .hero button {
-      margin-top: 20px;
-      padding: 10px 25px;
-      background: var(--cyan);
-      border: none;
-      border-radius: 25px;
-      cursor: pointer;
-      font-weight: 700;
-      color: #000;
-    }
-
-    .quote {
-      text-align: center;
-      color: var(--cyan);
-      margin: 25px 3%;
-      font-weight: 600;
-    }
-
     .content-section {
       padding: 54px 5%;
       text-align: center;
     }
 
-    /* GALLERY */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 12px;
-    }
-
-    .gallery-grid img {
-      width: 100%;
-      height: 170px;
-      object-fit: cover;
-      border-radius: 10px;
-      transition: 0.25s;
-    }
-
-    .gallery-grid img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 15px var(--cyan);
-    }
-
-    /* RATES */
     .rates-table {
       width: 100%;
       max-width: 720px;
@@ -225,7 +146,24 @@
       color: var(--cyan);
     }
 
-    /* CONTACT FORM */
+    .payment-btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 28px;
+      background: var(--cyan);
+      color: #000;
+      font-weight: 700;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 0 12px var(--cyan);
+      transition: 0.25s;
+    }
+
+    .payment-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 18px var(--cyan);
+    }
+
     .contact form {
       display: flex;
       flex-direction: column;
@@ -233,70 +171,21 @@
       gap: 10px;
     }
 
-    .contact input,
-    .contact textarea {
-      width: 100%;
-      max-width: 520px;
-      padding: 10px;
-      background: #111;
-      color: #fff;
-      border: none;
-      border-radius: 10px;
-    }
-
-    .contact button {
-      background: var(--cyan);
-      color: #000;
-      padding: 10px 25px;
-      border-radius: 25px;
-      font-weight: 700;
-      border: none;
-      cursor: pointer;
-    }
-
-    /* ========================
-       ⭐ FIXED SOCIAL ICONS
-       ======================== */
-    .socials {
-      display: flex;
-      justify-content: center;
-      gap: 18px;
-      margin-top: 15px;
-      flex-wrap: wrap;
-    }
-
     .socials a img {
       width: 45px;
       height: 45px;
-      object-fit: cover;
       border-radius: 10px;
-      transition: 0.25s;
-      box-shadow: 0 0 6px rgba(0, 234, 255, 0.4);
-    }
-
-    .socials a img:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 12px var(--cyan);
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px 0;
-      color: #777;
-      margin-top: 30px;
     }
   </style>
 </head>
 
 <body class="loading">
 
-  <!-- 🔥 PRELOADER -->
   <div id="preloader">
     <div class="ring"></div>
     <div class="preloader-text">LP</div>
   </div>
 
-  <!-- HEADER -->
   <header>
     <div class="logo">Levaan Pillay</div>
     <nav class="nav">
@@ -304,61 +193,12 @@
       <a href="#gallery">Gallery</a>
       <a href="#rates">Rates</a>
       <a href="#contact">Contact</a>
-
-      <span class="search-container">
-        <input id="searchInput" type="search" placeholder="Search..." />
-        <button id="searchBtn">Go</button>
-      </span>
     </nav>
   </header>
 
-  <!-- HERO -->
   <section class="hero">
     <h1>Welcome</h1>
-    <p>“Levaan Pillay is a scholar, visionary, and entrepreneur crafting his path to success.”!</p>
-    <button onclick="document.getElementById('contact').scrollIntoView({ behavior:'smooth' })">Book Now</button>
-  </section>
-<br> </br>
-  <div class="quote"><strong>"I sell dreams... hustling hard, gym and snack harder, sleeping hardest..."</strong></div>
-
-  <!-- ABOUT -->
-  <section id="about" class="content-section">
-    <h2 style="color:var(--cyan)">About Levaan Pillay</h2>
-    <br> </br>
-    <p>    I am a driven individual with a passion for growth, innovation, and making a lasting impact.
-
-I believe in hard work, discipline, and the power of purpose.
-
-Whether it’s through business, creativity, or personal development, I strive to inspire others to dream big and turn those dreams into reality.
-
-With a strong focus on continuous learning and self-improvement, I’m dedicated to building a legacy defined by excellence, integrity, and success. My journey is fueled by ambition, guided by gratitude, and shaped by a desire to uplift others along the way.
-
-
-I strive to inspire those around me to dream without limits and take action with intent.
-
-I value integrity, innovation, and excellence in everything I do, constantly pushing boundaries and setting new goals.
-
-
-For me, it’s not just about building a brand —
-
-it’s about building a legacy.
-
-Every step I take is guided by gratitude, confidence, and the desire to leave a mark that lasts far beyond my lifetime.    </p>
-  </section>
-
-  <!-- GALLERY -->
-  <section id="gallery" class="content-section gallery">
-    <h2 style="color:var(--cyan)">Gallery</h2>
-    <div class="gallery-grid">
-      <img src="ME2 (2).jpg">
-      <img src="POETRY PIC.jpg">
-      <img src="profile pic.jpg">
-      <img src="RED.jpg">
-      <img src="BEACH ME PIC.jpg">
-      <img src="WHITE KURTHA.jpg">
-      <img src="FAMILY PIC.jpg">
-      <img src="ELEVATOR PIC.jpg">
-    </div>
+    <p>“Levaan Pillay is a scholar, visionary, and entrepreneur crafting his path to success.”</p>
   </section>
 
   <!-- RATES -->
@@ -370,65 +210,40 @@ Every step I take is guided by gratitude, confidence, and the desire to leave a 
       <tr><td>Orders</td><td>—</td></tr>
       <tr><td>Coming soon</td><td>—</td></tr>
     </table>
+
+    <!-- PAYMENT GATEWAY SECTION ADDED HERE -->
+    <a class="payment-btn" href="https://yourpaymentgateway.com/pay" target="_blank">
+      Proceed to Secure Payment
+    </a>
   </section>
 
   <!-- CONTACT -->
   <section id="contact" class="content-section contact">
     <h2 style="color:var(--cyan)">Contact & Booking</h2>
-
     <form id="contactForm" onsubmit="sendEmail(event)">
       <input id="name" type="text" placeholder="Your Name" required>
       <input id="email" type="email" placeholder="Your Email" required>
       <textarea id="message" placeholder="Message or Booking Request" rows="5" required></textarea>
       <button type="submit">Send Email</button>
     </form>
-
-    <div class="socials">
-      <a href="tel:+27647928063"><img src="CALL.jpg"></a>
-      <a href="mailto:levaanpillay6@gmail.com"><img src="EMAIL PIC.jpg"></a>
-      <a href="https://www.instagram.com/levaan_pillay"><img src="INSTAGRAM PIC.jpg"></a>
-      <a href="https://www.tiktok.com/@levaan_pillay"><img src="TIK TOK PIC.jpg"></a>
-    </div>
   </section>
 
-   <div class="quote"><strong> "Focus, Prayer and hard work are guiding principles for reaching stepping stones in my life" </strong></div>
-
-  
   <footer><p>© 2025 Levaan Pillay. All rights reserved.</p></footer>
 
-  <!-- SCRIPT -->
   <script>
-    /* PRELOADER */
     window.addEventListener("load", () => {
-      const preloader = document.getElementById("preloader");
-      preloader.style.opacity = "0";
-      preloader.style.transition = "opacity 0.7s ease";
-
-      setTimeout(() => {
-        preloader.style.display = "none";
-        document.body.classList.remove("loading");
-      }, 700);
+      const pre = document.getElementById("preloader");
+      pre.style.opacity = "0";
+      setTimeout(() => { pre.style.display = "none"; }, 700);
     });
 
     function sendEmail(event) {
       event.preventDefault();
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const message = document.getElementById("message").value.trim();
-
-      if (!name || !email || !message) {
-        alert("Please fill every field.");
-        return;
-      }
-
-      const mailtoLink =
-        `mailto:levaanpillay6@gmail.com?subject=New Query from ${encodeURIComponent(name)}&body=From: ${encodeURIComponent(email)}%0A%0A${encodeURIComponent(message)}`;
-      window.location.href = mailtoLink;
+      const n = name.value.trim(), e = email.value.trim(), m = message.value.trim();
+      if (!n || !e || !m) return alert("Please fill every field.");
+      window.location.href = `mailto:levaanpillay6@gmail.com?subject=New Query from ${encodeURIComponent(n)}&body=From: ${encodeURIComponent(e)}%0A%0A${encodeURIComponent(m)}`;
     }
   </script>
 
 </body>
 </html>
-
-
-
