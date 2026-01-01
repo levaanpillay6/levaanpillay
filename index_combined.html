@@ -1,285 +1,354 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Levaan Pillay</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Levaan Pillay</title>
 
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--cyan:#00eaff;
+--black:#000;
+--white:#fff;
+}
 
-    :root {
-      --cyan: #00eaff;
-      --black: #000;
-      --white: #fff;
-    }
+body.loading{overflow:hidden}
+body{
+background:var(--black);
+color:var(--white);
+font-family:Poppins,sans-serif;
+line-height:1.6;
+padding-top:110px
+}
+html{scroll-behavior:smooth}
+section{scroll-margin-top:90px}
 
-    body {
-      background: var(--black);
-      color: var(--white);
-      font-family: "Poppins", sans-serif;
-      line-height: 1.6;
-      padding-top: 110px;
-    }
+/* PRELOADER */
+#preloader{
+position:fixed;
+inset:0;
+background:#000;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:2000
+}
+.ring{
+width:140px;height:140px;
+border:6px solid transparent;
+border-top:6px solid var(--cyan);
+border-right:6px solid var(--cyan);
+border-radius:50%;
+animation:spin 1s linear infinite;
+filter:drop-shadow(0 0 12px var(--cyan))
+}
+.preloader-text{
+font-size:3.4rem;
+font-weight:800;
+color:var(--cyan);
+letter-spacing:4px;
+animation:glow 2s infinite
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes glow{50%{opacity:1;transform:scale(1.14)}}
 
-    html { scroll-behavior: smooth; }
-    section { scroll-margin-top: 90px; }
+/* HEADER */
+header{
+position:fixed;
+top:0;left:0;right:0;
+background:#0d0d0d;
+display:flex;
+flex-direction:column;
+align-items:center;
+padding:14px;
+box-shadow:0 2px 10px rgba(0,255,255,.25);
+z-index:1000
+}
+.logo{
+font-size:1.6rem;
+font-weight:700;
+color:var(--cyan)
+}
+.nav{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+justify-content:center;
+margin-top:8px
+}
+.nav a{
+color:#ddd;
+text-decoration:none;
+padding:6px 12px;
+border-radius:6px
+}
+.nav a:hover{
+background:var(--cyan);
+color:#000
+}
 
-    /* HEADER */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: #0d0d0d;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 14px;
-      box-shadow: 0 2px 10px rgba(0,255,255,0.25);
-      z-index: 1000;
-    }
+/* HERO */
+.hero{
+text-align:center;
+padding:100px 20px;
+background:linear-gradient(180deg,#000,#020b0d)
+}
+.hero h1{font-size:2.4rem;color:var(--cyan)}
+.hero p{max-width:900px;margin:auto;color:#cfcfcf}
+.hero button{
+margin-top:20px;
+padding:10px 25px;
+background:var(--cyan);
+border:none;
+border-radius:25px;
+font-weight:700;
+cursor:pointer
+}
 
-    .logo {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--cyan);
-      margin-bottom: 10px;
-    }
+.quote{
+text-align:center;
+color:var(--cyan);
+margin:25px 3%;
+font-weight:600
+}
 
-    .nav {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+.content-section{
+padding:55px 6%;
+text-align:center
+}
 
-    .nav a {
-      color: #ddd;
-      text-decoration: none;
-      padding: 6px 12px;
-      border-radius: 6px;
-    }
+/* GALLERY */
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+gap:12px
+}
+.gallery-grid img{
+width:100%;
+height:170px;
+object-fit:cover;
+border-radius:10px;
+transition:.25s
+}
+.gallery-grid img:hover{
+transform:scale(1.05);
+box-shadow:0 0 15px var(--cyan)
+}
 
-    .nav a:hover {
-      background: var(--cyan);
-      color: #000;
-    }
+/* RATES */
+.rates-table{
+width:100%;
+max-width:720px;
+margin:auto;
+border-collapse:collapse
+}
+.rates-table th,.rates-table td{
+padding:10px;
+border:1px solid #111
+}
+.rates-table th{
+background:#0a0a0a;
+color:var(--cyan)
+}
 
-    /* HERO */
-    .hero {
-      text-align: center;
-      padding: 100px 20px;
-    }
+/* PAYFAST */
+.payfast-section{
+margin-top:40px;
+display:flex;
+justify-content:center
+}
+.payfast-form{
+background:#0a0a0a;
+padding:28px;
+border-radius:22px;
+box-shadow:0 0 18px rgba(0,234,255,.45)
+}
+.payfast-form label{
+color:var(--cyan);
+font-weight:600
+}
+.payfast-form input[type=number]{
+margin:10px 0 20px;
+padding:10px;
+width:160px;
+border-radius:10px;
+border:none;
+background:#111;
+color:#fff;
+text-align:center
+}
 
-    .hero h1 {
-      font-size: 2.4rem;
-      color: var(--cyan);
-      margin-bottom: 10px;
-    }
+/* CONTACT */
+.contact form{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:10px
+}
+.contact input,.contact textarea{
+width:100%;
+max-width:520px;
+padding:10px;
+background:#111;
+color:#fff;
+border:none;
+border-radius:10px
+}
+.contact button{
+background:var(--cyan);
+color:#000;
+padding:10px 25px;
+border-radius:25px;
+font-weight:700;
+border:none;
+cursor:pointer
+}
 
-    .hero button {
-      margin-top: 20px;
-      padding: 10px 25px;
-      background: var(--cyan);
-      border: none;
-      border-radius: 25px;
-      font-weight: 700;
-      cursor: pointer;
-    }
+/* SOCIALS */
+.socials{
+display:flex;
+justify-content:center;
+gap:18px;
+margin-top:15px;
+flex-wrap:wrap
+}
+.socials img{
+width:45px;height:45px;
+border-radius:10px;
+box-shadow:0 0 6px rgba(0,234,255,.4)
+}
 
-    .content-section {
-      padding: 55px 6%;
-      text-align: center;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 12px;
-    }
-
-    .gallery-grid img {
-      width: 100%;
-      height: 170px;
-      object-fit: cover;
-      border-radius: 10px;
-    }
-
-    .rates-table {
-      width: 100%;
-      max-width: 700px;
-      margin: auto;
-      border-collapse: collapse;
-    }
-
-    .rates-table th, .rates-table td {
-      padding: 10px;
-      border: 1px solid #111;
-    }
-
-    .rates-table th {
-      background: #0a0a0a;
-      color: var(--cyan);
-    }
-
-    /* PAYFAST */
-    .payfast-section {
-      text-align: center;
-      margin-top: 40px;
-    }
-
-    .payfast-form {
-      display: inline-block;
-      background: #0a0a0a;
-      padding: 28px;
-      border-radius: 20px;
-      box-shadow: 0 0 15px rgba(0,234,255,0.4);
-    }
-
-    .payfast-form label {
-      color: var(--cyan);
-      font-weight: 600;
-    }
-
-    .payfast-form input[type="number"] {
-      margin-top: 10px;
-      margin-bottom: 20px;
-      padding: 10px;
-      width: 160px;
-      border-radius: 10px;
-      border: none;
-      background: #111;
-      color: #fff;
-      text-align: center;
-    }
-
-    /* CONTACT */
-    .contact form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .contact input,
-    .contact textarea {
-      width: 100%;
-      max-width: 520px;
-      padding: 10px;
-      background: #111;
-      color: #fff;
-      border-radius: 10px;
-      border: none;
-    }
-
-    .contact button {
-      background: var(--cyan);
-      color: #000;
-      padding: 10px 25px;
-      border-radius: 25px;
-      font-weight: 700;
-      border: none;
-      cursor: pointer;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #777;
-    }
-  </style>
+/* FOOTER */
+footer{
+text-align:center;
+padding:20px;
+color:#777
+}
+</style>
 </head>
 
-<body>
+<body class="loading">
+
+<div id="preloader">
+<div class="ring"></div>
+<div class="preloader-text">LP</div>
+</div>
 
 <header>
-  <div class="logo">Levaan Pillay</div>
-  <nav class="nav">
-    <a href="#about">About</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#rates">Rates</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<div class="logo">Levaan Pillay</div>
+<nav class="nav">
+<a href="#about">About</a>
+<a href="#gallery">Gallery</a>
+<a href="#rates">Rates</a>
+<a href="#contact">Contact</a>
+</nav>
 </header>
 
 <section class="hero">
-  <h1>Welcome</h1>
-  <p>Levaan Pillay is a scholar, visionary, and entrepreneur crafting his path to success.</p>
-  <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book Now</button>
+<h1>Welcome</h1>
+<p>“Levaan Pillay is a scholar, visionary, and entrepreneur crafting his path to success.”</p>
+<button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+Book Now
+</button>
 </section>
 
+<div class="quote">"I sell dreams... hustling hard, gym and snack harder, sleeping hardest..."</div>
+
 <section id="about" class="content-section">
-  <h2 style="color:var(--cyan)">About</h2>
-  <p>I am a driven individual focused on growth, discipline, and building a lasting legacy.</p>
+<h2 style="color:var(--cyan)">About Levaan Pillay</h2>
+<p>
+I am a driven individual with a passion for growth, innovation, and making a lasting impact.
+I believe in hard work, discipline, and the power of purpose.
+For me, it’s not just about building a brand — it’s about building a legacy.
+</p>
 </section>
 
 <section id="gallery" class="content-section">
-  <h2 style="color:var(--cyan)">Gallery</h2>
-  <div class="gallery-grid">
-    <img src="ME2 (2).jpg">
-    <img src="POETRY PIC.jpg">
-    <img src="profile pic.jpg">
-    <img src="RED.jpg">
-  </div>
+<h2 style="color:var(--cyan)">Gallery</h2>
+<div class="gallery-grid">
+<img src="ME2 (2).jpg">
+<img src="POETRY PIC.jpg">
+<img src="profile pic.jpg">
+<img src="RED.jpg">
+<img src="BEACH ME PIC.jpg">
+<img src="WHITE KURTHA.jpg">
+<img src="FAMILY PIC.jpg">
+<img src="ELEVATOR PIC.jpg">
+</div>
 </section>
 
 <section id="rates" class="content-section">
-  <h2 style="color:var(--cyan)">Rates</h2>
-  <table class="rates-table">
-    <tr><th>Item</th><th>Rate</th></tr>
-    <tr><td>Web Development</td><td>Custom</td></tr>
-    <tr><td>Branding</td><td>Custom</td></tr>
-  </table>
+<h2 style="color:var(--cyan)">Rates</h2>
+<table class="rates-table">
+<tr><th>Item</th><th>Rate</th></tr>
+<tr><td>Web Development</td><td>Custom</td></tr>
+<tr><td>Branding</td><td>Custom</td></tr>
+</table>
 </section>
 
-<!-- PAYFAST -->
+<!-- PAYFAST PAYMENT -->
 <section class="content-section">
-  <div class="payfast-section">
-    <form class="payfast-form"
-      action="https://payment.payfast.io/eng/process"
-      method="post">
+<div class="payfast-section">
+<form class="payfast-form"
+action="https://payment.payfast.io/eng/process"
+method="post">
 
-      <input type="hidden" name="cmd" value="_paynow">
-      <input type="hidden" name="receiver" value="26564121">
-      <input type="hidden" name="item_name" value="Levaan Pillay">
-      <input type="hidden" name="item_description" value="Levaan Pillay">
+<input type="hidden" name="cmd" value="_paynow">
+<input type="hidden" name="receiver" value="26564121">
 
-      <input type="hidden" name="return_url" value="https://levaanpillay6.github.io/levaanpillay/index_combined.html">
-      <input type="hidden" name="cancel_url" value="https://levaanpillay6.github.io/levaanpillay/index_combined.html">
-      <input type="hidden" name="notify_url" value="https://levaanpillay6.github.io/levaanpillay/index_combined.html">
+<input type="hidden" name="return_url"
+value="https://levaanpillay6.github.io/levaanpillay/thank-you.html">
+<input type="hidden" name="cancel_url"
+value="https://levaanpillay6.github.io/levaanpillay/index_combined.html">
+<input type="hidden" name="notify_url"
+value="https://levaanpillay6.github.io/levaanpillay/index_combined.html">
 
-      <label>Amount (ZAR)</label><br>
-      <input type="number" name="amount" min="5.00" step="0.01" value="10.00" required>
+<input type="hidden" name="item_name" value="Levaan Pillay">
+<input type="hidden" name="item_description" value="Payment">
 
-      <br>
-      <input type="image"
-        src="https://my.payfast.io/images/buttons/BuyNow/Primary-Large-BuyNow.png"
-        alt="Pay Now with PayFast">
-    </form>
-  </div>
+<label>Amount (ZAR)</label><br>
+<input type="number" name="amount" min="5.00" step="0.01" value="10.00" required>
+
+<br>
+<input type="image"
+src="https://my.payfast.io/images/buttons/BuyNow/Primary-Large-BuyNow.png"
+alt="Pay Now with PayFast">
+</form>
+</div>
 </section>
 
 <section id="contact" class="content-section contact">
-  <h2 style="color:var(--cyan)">Contact</h2>
-  <form onsubmit="sendEmail(event)">
-    <input id="name" placeholder="Your Name" required>
-    <input id="email" type="email" placeholder="Your Email" required>
-    <textarea id="message" placeholder="Message" required></textarea>
-    <button type="submit">Send Email</button>
-  </form>
+<h2 style="color:var(--cyan)">Contact & Booking</h2>
+<form onsubmit="sendEmail(event)">
+<input id="name" placeholder="Your Name" required>
+<input id="email" type="email" placeholder="Your Email" required>
+<textarea id="message" placeholder="Message" required></textarea>
+<button type="submit">Send Email</button>
+</form>
+
+<div class="socials">
+<a href="tel:+27647928063"><img src="CALL.jpg"></a>
+<a href="mailto:levaanpillay6@gmail.com"><img src="EMAIL PIC.jpg"></a>
+<a href="https://www.instagram.com/levaan_pillay"><img src="BLACKINSTA.jpg"></a>
+<a href="https://www.tiktok.com/@levaan_pillay"><img src="TIK TOK PIC.jpg"></a>
+</div>
 </section>
 
-<footer>© 2025 Levaan Pillay</footer>
+<footer>© 2025 Levaan Pillay. All rights reserved.</footer>
 
 <script>
+window.addEventListener("load",()=>{
+const p=document.getElementById("preloader");
+p.style.opacity="0";
+setTimeout(()=>{p.style.display="none";document.body.classList.remove("loading")},700)
+});
 function sendEmail(e){
-  e.preventDefault();
-  const n=name.value, em=email.value, m=message.value;
-  window.location.href=`mailto:levaanpillay6@gmail.com?subject=New Query from ${n}&body=${m}`;
+e.preventDefault();
+window.location.href=
+`mailto:levaanpillay6@gmail.com?subject=New Query from ${name.value}&body=${message.value}`;
 }
 </script>
 
 </body>
 </html>
-
